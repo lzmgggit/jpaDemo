@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- SQL dialect 方言-->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/hibernatecode</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">ort1234</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+
+        <!-- JDBC connection pool (use the built-in) 连接池-->
+        <property name="connection.pool_size">1</property>
+
+
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- Disable the second-level cache  二级缓存-->
+        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+        <!-- Echo all executed SQL to stdout 控制台显示SQL语句-->
+        <property name="show_sql">true</property>
+
+        <!--  Drop and re-create the database schema on startup 生成建表语句HibernateMappingToDataDefinedLanguage-->
+        <property name="hbm2ddl.auto">update</property>
+
+        <!-- 将实体类映射成数据库字段  -->
+        <!-- 方法一  通过配置文件映射
+        <mapping resource="com/bjsxt/hibernate/Event.hbm.xml"/> -->
+        <!-- 方法二  通过注解映射 (略   后面笔记记录)-->
+        <mapping class="com.lits.eo.Employee"/>
+        <mapping class="com.lits.eo.Company"/>
+    </session-factory>
+</hibernate-configuration>

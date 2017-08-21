@@ -1,0 +1,25 @@
+create database hibernatecode CHARACTER SET utf8 COLLATE utf8_general_ci;
+use hibernatecode ;
+DROP TABLE IF EXISTS `t_company`;
+CREATE TABLE `t_company` (
+  `companyId` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `companyName` varchar(30) NOT NULL,
+  PRIMARY KEY (`companyId`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=gb2312;
+
+INSERT INTO `t_company` VALUES ('1', 'Sun');
+INSERT INTO `t_company` VALUES ('2', 'Apache');
+
+DROP TABLE IF EXISTS `t_employee`;
+CREATE TABLE `t_employee` (
+  `employeeId` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `employeeName` varchar(15) NOT NULL,
+  `cid` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`employeeId`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=gb2312;
+
+INSERT INTO `t_employee` VALUES ('1', 'Tom', '1');
+INSERT INTO `t_employee` VALUES ('2', 'Summ', '1');
+INSERT INTO `t_employee` VALUES ('3', 'Cat', '2');
+INSERT INTO `t_employee` VALUES ('4', 'Vinylon', '1');
+INSERT INTO `t_employee` VALUES ('5', 'Dog', '2');
